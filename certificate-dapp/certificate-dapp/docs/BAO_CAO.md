@@ -2,17 +2,6 @@
 
 ## ĐỀ TÀI: XÂY DỰNG DAPP QUẢN LÝ VÀ XÁC MINH CHỨNG CHỈ SỐ TRÊN BLOCKCHAIN
 
-| | |
-|---|---|
-| **Sinh viên thực hiện** | `[Họ và tên]` |
-| **Mã số sinh viên** | `[MSSV]` |
-| **Lớp** | `[Lớp]` |
-| **Giảng viên hướng dẫn** | `[Tên giảng viên]` |
-| **Trường** | `[Tên trường]` |
-| **Thời gian** | `[Tháng/Năm]` |
-
-> **Ghi chú khi sử dụng bản nháp này:** Các chỗ có dạng `[...]` (thông tin cá nhân ở trang bìa) là phần bạn cần tự điền. Chương 5 đã có kết quả chạy thực tế từ mã nguồn trong repo; hãy chạy lại trên máy bạn và thay ảnh demo bằng ảnh chụp với MetaMask thật.
-
 ---
 
 ## MỤC LỤC
