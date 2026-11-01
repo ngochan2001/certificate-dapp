@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Certificate DApp - Xác minh chứng chỉ số trên Blockchain</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo" aria-hidden="true">CD</span>
+      <div>
+        <strong>Certificate DApp</strong>
+        <small>Chứng chỉ số trên Blockchain</small>
+      </div>
+    </div>
+    <div class="wallet">
+      <span id="net-badge" class="badge badge-grey">Chưa kết nối ví</span>
+      <span id="role-badges"></span>
+      <span id="account-label" class="mono small"></span>
+      <button id="btn-connect" class="btn primary" type="button">Kết nối ví</button>
+    </div>
+  </header>
+
+  <div id="banner" class="banner hidden" role="alert"></div>
+
+  <nav class="tabs" id="tabs">
+    <button type="button" class="tab active" data-tab="verify">Xác minh</button>
+    <button type="button" class="tab hidden" data-tab="mine" data-needs="wallet">Chứng chỉ của tôi</button>
+    <button type="button" class="tab hidden" data-tab="issue" data-needs="issuer">Cấp chứng chỉ</button>
+    <button type="button" class="tab hidden" data-tab="manage" data-needs="issuer">Đã cấp / Thu hồi</button>
+    <button type="button" class="tab hidden" data-tab="admin" data-needs="owner">Quản trị</button>
+  </nav>
+
+  <main>
+    <!-- ============ XÁC MINH ============ -->
+    <section id="tab-verify" class="panel">
+      <h2>Xác minh chứng chỉ</h2>
+      <p class="muted">Không cần ví và không tốn phí. Tải file chứng chỉ lên để tính mã băm và đối chiếu với bản ghi trên Blockchain.</p>
+
+      <div class="grid2">
+        <div class="card">
+          <label class="label" for="verify-file">Cách 1: Tải file chứng chỉ (khuyến nghị)</label>
+          <input type="file" id="verify-file">
+          <p class="muted small" id="verify-file-info">Mã băm được tính ngay trên trình duyệt, file không bị gửi đi đâu.</p>
+        </div>
+        <div class="card">
+          <label class="label" for="verify-hash">Cách 2: Nhập hoặc dán mã băm (từ mã QR)</label>
+          <input type="text" id="verify-hash" placeholder="0x..." spellcheck="false" autocomplete="off">
+          <button id="btn-verify" class="btn primary" type="button">Xác minh</button>
+        </div>
+      </div>
+
+      <div id="verify-result"></div>
+
+      <div id="samples" class="card hidden">
+        <h3>Dữ liệu mẫu để thử nhanh</h3>
+        <p class="muted small">Dữ liệu hư cấu từ <code>data/hashes.json</code>. Bấm để xác minh theo mã băm, hoặc mở file PDF rồi tải lại ở "Cách 1".</p>
+        <div id="sample-list" class="samples"></div>
+      </div>
+    </section>
+
+    <!-- ============ CHỨNG CHỈ CỦA TÔI ============ -->
+    <section id="tab-mine" class="panel hidden">
+      <h2>Chứng chỉ của tôi</h2>
+      <p class="muted">Các chứng chỉ được cấp cho ví đang kết nối. Bấm "Mã QR" để chia sẻ cho nhà tuyển dụng.</p>
+      <div id="mine-list"></div>
+    </section>
+
+    <!-- ============ CẤP CHỨNG CHỈ ============ -->
+    <section id="tab-issue" class="panel hidden">
+      <h2>Cấp chứng chỉ mới</h2>
+      <p class="muted">Chỉ ví đã được cấp quyền đơn vị cấp (issuer) mới thực hiện được. On-chain chỉ lưu mã băm và thông tin tối thiểu, không lưu file.</p>
+      <div class="card form">
+        <label class="label" for="issue-file">File chứng chỉ (PDF)</label>
+        <input type="file" id="issue-file">
+
+        <label class="label" for="issue-hash">Mã băm keccak256 (tự điền khi chọn file, có thể nhập tay)</label>
+        <input type="text" id="issue-hash" class="mono" placeholder="0x..." spellcheck="false" autocomplete="off">
+
+        <label class="label" for="issue-holder">Địa chỉ ví người nhận</label>
+        <input type="text" id="issue-holder" class="mono" placeholder="0x..." spellcheck="false" autocomplete="off">
+
+        <label class="label" for="issue-uri">Đường dẫn metadata off-chain (tùy chọn)</label>
+        <input type="text" id="issue-uri" placeholder="data/metadata/CERT-001.json">
+        <p class="muted small">Không đưa thông tin cá nhân nhạy cảm vào đây: dữ liệu on-chain công khai và gần như không thể xóa.</p>
+
+        <button id="btn-issue" class="btn primary" type="button">Cấp chứng chỉ</button>
+        <div id="issue-msg" class="msg"></div>
+      </div>
+    </section>
+
+    <!-- ============ QUẢN LÝ ============ -->
+    <section id="tab-manage" class="panel hidden">
+      <h2>Chứng chỉ đã cấp</h2>
+      <p class="muted">Danh sách chứng chỉ do ví của bạn cấp. Thu hồi không xóa bản ghi, chỉ đổi trạng thái thành "Đã thu hồi".</p>
+      <button id="btn-manage-refresh" class="btn" type="button">Tải lại</button>
+      <div id="manage-msg" class="msg"></div>
+      <div id="manage-list"></div>
+    </section>
+
+    <!-- ============ QUẢN TRỊ ============ -->
+    <section id="tab-admin" class="panel hidden">
+      <h2>Quản trị đơn vị cấp</h2>
+      <p class="muted">Chỉ chủ hợp đồng (owner) được thêm/gỡ quyền cấp chứng chỉ.</p>
+      <div class="card form">
+        <label class="label" for="admin-addr">Địa chỉ ví đơn vị cấp</label>
+        <input type="text" id="admin-addr" class="mono" placeholder="0x..." spellcheck="false" autocomplete="off">
+        <div class="row">
+          <button id="btn-admin-add" class="btn primary" type="button">Cấp quyền</button>
+          <button id="btn-admin-remove" class="btn danger" type="button">Gỡ quyền</button>
+        </div>
+        <div id="admin-msg" class="msg"></div>
+      </div>
+      <h3>Danh sách đơn vị cấp</h3>
+      <div id="admin-list"></div>
+    </section>
+  </main>
+
+  <dialog id="qr-dialog">
+    <h3>Mã QR xác minh</h3>
+    <div id="qr-box" class="qr-box"></div>
+    <p class="mono small" id="qr-hash"></p>
+    <p class="muted small">Quét mã sẽ mở trang xác minh với mã băm này. Lưu ý: để điện thoại mở được, trang web phải được đưa lên địa chỉ truy cập được từ Internet (không phải localhost).</p>
+    <div class="row">
+      <button id="qr-copy" class="btn" type="button">Sao chép liên kết</button>
+      <button id="qr-close" class="btn primary" type="button">Đóng</button>
+    </div>
+  </dialog>
+
+  <footer class="footer">
+    <span>Dữ liệu mẫu là hư cấu, chỉ dùng cho học tập.</span>
+    <span id="contract-label" class="mono small"></span>
+  </footer>
+
+  <script src="lib/ethers.umd.min.js"></script>
+  <script src="lib/qrcode.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "id": "CERT-001",
+  "type": "Bằng tốt nghiệp",
+  "title": "Kỹ sư Công nghệ thông tin",
+  "studentName": "Nguyễn Văn An",
+  "studentId": "SV2022001",
+  "result": "Xếp loại: Giỏi",
+  "issueDate": "2026-06-15",
+  "issuerName": "Trường Đại học Công nghệ Mẫu",
+  "file": "data/sample-pdfs/CERT-001.pdf",
+  "note": "Dữ liệu hư cấu phục vụ học tập. Dữ liệu này nằm OFF-CHAIN, chuỗi chỉ lưu mã băm của file PDF."
+}

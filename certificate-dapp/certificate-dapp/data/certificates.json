@@ -1,0 +1,98 @@
+{
+  "_ghi_chu": "TOÀN BỘ DỮ LIỆU TRONG FILE NÀY LÀ HƯ CẤU, chỉ dùng để học tập và demo. Tên người, mã số, đơn vị cấp đều không có thật.",
+  "issuers": [
+    {
+      "key": "dhcn-mau",
+      "name": "Trường Đại học Công nghệ Mẫu",
+      "accountIndex": 1
+    },
+    {
+      "key": "ttnn-mau",
+      "name": "Trung tâm Ngoại ngữ Mẫu",
+      "accountIndex": 2
+    }
+  ],
+  "certificates": [
+    {
+      "id": "CERT-001",
+      "type": "Bằng tốt nghiệp",
+      "title": "Kỹ sư Công nghệ thông tin",
+      "studentName": "Nguyễn Văn An",
+      "studentId": "SV2022001",
+      "result": "Xếp loại: Giỏi",
+      "issueDate": "2026-06-15",
+      "issuerKey": "dhcn-mau",
+      "holderAccountIndex": 3,
+      "revoke": false
+    },
+    {
+      "id": "CERT-002",
+      "type": "Bằng tốt nghiệp",
+      "title": "Kỹ sư Khoa học dữ liệu",
+      "studentName": "Trần Thị Bình",
+      "studentId": "SV2022002",
+      "result": "Xếp loại: Khá",
+      "issueDate": "2026-06-15",
+      "issuerKey": "dhcn-mau",
+      "holderAccountIndex": 4,
+      "revoke": false
+    },
+    {
+      "id": "CERT-003",
+      "type": "Chứng chỉ",
+      "title": "Lập trình Blockchain cơ bản",
+      "studentName": "Lê Hoàng Cường",
+      "studentId": "SV2022003",
+      "result": "Kết quả: Đạt (8.5/10)",
+      "issueDate": "2026-07-02",
+      "issuerKey": "dhcn-mau",
+      "holderAccountIndex": 5,
+      "revoke": false
+    },
+    {
+      "id": "CERT-004",
+      "type": "Giấy chứng nhận",
+      "title": "Hoàn thành khóa Trí tuệ nhân tạo cơ bản",
+      "studentName": "Phạm Minh Dũng",
+      "studentId": "SV2021015",
+      "result": "Kết quả: Hoàn thành",
+      "issueDate": "2026-08-20",
+      "issuerKey": "dhcn-mau",
+      "holderAccountIndex": 6,
+      "revoke": false
+    },
+    {
+      "id": "CERT-005",
+      "type": "Chứng chỉ",
+      "title": "Tiếng Anh trình độ B1",
+      "studentName": "Nguyễn Văn An",
+      "studentId": "SV2022001",
+      "result": "Điểm: 78/100",
+      "issueDate": "2026-05-10",
+      "issuerKey": "ttnn-mau",
+      "holderAccountIndex": 3,
+      "revoke": false
+    },
+    {
+      "id": "CERT-006",
+      "type": "Chứng chỉ",
+      "title": "Tiếng Anh trình độ B1",
+      "studentName": "Võ Thanh Em",
+      "studentId": "SV2022020",
+      "result": "Điểm: 71/100",
+      "issueDate": "2026-05-10",
+      "issuerKey": "ttnn-mau",
+      "holderAccountIndex": 7,
+      "revoke": true,
+      "revokeReason": "Demo thu hồi: phát hiện sai sót thông tin khi cấp"
+    }
+  ],
+  "tampered": [
+    {
+      "id": "CERT-001",
+      "file": "CERT-001_tampered.pdf",
+      "change": "Sửa 'Giỏi' thành 'Xuất sắc'",
+      "result": "Xếp loại: Xuất sắc"
+    }
+  ]
+}
