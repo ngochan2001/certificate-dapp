@@ -1,0 +1,27 @@
+{
+  "name": "certificate-dapp",
+  "version": "1.0.0",
+  "description": "DApp cấp, thu hồi và xác minh chứng chỉ số trên Blockchain (báo cáo môn Blockchain)",
+  "private": true,
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "gas": "hardhat run scripts/gas-report.js",
+    "node": "hardhat node",
+    "deploy": "hardhat run scripts/deploy.js --network localhost",
+    "seed": "hardhat run scripts/seed.js --network localhost",
+    "setup": "npm run deploy && npm run seed",
+    "hash": "node scripts/hash-file.js",
+    "serve": "http-server . -p 3000 -c-1"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^6.1.2",
+    "ethers": "^6.17.0",
+    "hardhat": "^2.29.1",
+    "http-server": "^14.1.1"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "id": "CERT-004",
+  "type": "Giấy chứng nhận",
+  "title": "Hoàn thành khóa Trí tuệ nhân tạo cơ bản",
+  "studentName": "Phạm Minh Dũng",
+  "studentId": "SV2021015",
+  "result": "Kết quả: Hoàn thành",
+  "issueDate": "2026-08-20",
+  "issuerName": "Trường Đại học Công nghệ Mẫu",
+  "file": "data/sample-pdfs/CERT-004.pdf",
+  "note": "Dữ liệu hư cấu phục vụ học tập. Dữ liệu này nằm OFF-CHAIN, chuỗi chỉ lưu mã băm của file PDF."
+}

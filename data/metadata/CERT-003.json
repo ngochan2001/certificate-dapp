@@ -1,0 +1,12 @@
+{
+  "id": "CERT-003",
+  "type": "Chứng chỉ",
+  "title": "Lập trình Blockchain cơ bản",
+  "studentName": "Lê Hoàng Cường",
+  "studentId": "SV2022003",
+  "result": "Kết quả: Đạt (8.5/10)",
+  "issueDate": "2026-07-02",
+  "issuerName": "Trường Đại học Công nghệ Mẫu",
+  "file": "data/sample-pdfs/CERT-003.pdf",
+  "note": "Dữ liệu hư cấu phục vụ học tập. Dữ liệu này nằm OFF-CHAIN, chuỗi chỉ lưu mã băm của file PDF."
+}
