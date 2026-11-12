@@ -117,7 +117,7 @@
     return base + "?verify=" + hash;
   }
 
-  /* ---------- Khởi tạo & cấu hình ---------- */
+  /* Khởi tạo & cấu hình */
   async function loadConfig() {
     try {
       const res = await fetch("contract.json", { cache: "no-store" });
@@ -151,7 +151,7 @@
     return true;
   }
 
-  /* ---------- Kết nối ví ---------- */
+  /* Kết nối ví */
   async function ensureChain() {
     const want = "0x" + Number(state.cfg.chainId).toString(16);
     const cur = await window.ethereum.request({ method: "eth_chainId" });
@@ -219,7 +219,7 @@
     });
   }
 
-  /* ---------- Tab ---------- */
+  /* Tab */
   function showTab(name) {
     document.querySelectorAll(".tab").forEach((t) => t.classList.toggle("active", t.dataset.tab === name));
     document.querySelectorAll(".panel").forEach((p) => p.classList.toggle("hidden", p.id !== "tab-" + name));
@@ -228,7 +228,7 @@
     if (name === "admin") loadAdmin();
   }
 
-  /* ---------- Xác minh ---------- */
+  /* Xác minh */
   async function fetchHistory(hash) {
     const c = state.readContract;
     const [issued, revoked] = await Promise.all([
@@ -368,7 +368,7 @@
     } catch (_) { /* không có dữ liệu mẫu thì bỏ qua */ }
   }
 
-  /* ---------- QR ---------- */
+  /* QR */
   function showQr(hash) {
     state.qrUrl = verifyUrl(hash);
     const qr = window.qrcode(0, "M");
@@ -391,7 +391,7 @@
     }
   }
 
-  /* ---------- Chứng chỉ của tôi (holder) ---------- */
+  /* Chứng chỉ của tôi (holder) */
   async function loadMine() {
     const box = $("#mine-list");
     if (!state.account) { box.replaceChildren(h("p", { class: "muted" }, "Hãy kết nối ví.")); return; }
@@ -426,7 +426,7 @@
     }
   }
 
-  /* ---------- Cấp chứng chỉ (issuer) ---------- */
+  /* Cấp chứng chỉ (issuer) */
   async function onIssueFile(ev) {
     const file = ev.target.files && ev.target.files[0];
     if (!file) return;
@@ -462,7 +462,7 @@
     }
   }
 
-  /* ---------- Quản lý đã cấp / thu hồi ---------- */
+  /* Quản lý đã cấp / thu hồi */
   async function loadManage() {
     const box = $("#manage-list");
     if (!state.account) { box.replaceChildren(h("p", { class: "muted" }, "Hãy kết nối ví.")); return; }
@@ -514,7 +514,7 @@
     }
   }
 
-  /* ---------- Quản trị (owner) ---------- */
+  /* Quản trị (owner) */
   async function setIssuer(allowed) {
     const msg = $("#admin-msg");
     const addr = $("#admin-addr").value.trim();
@@ -553,7 +553,7 @@
     }
   }
 
-  /* ---------- Gắn sự kiện & chạy ---------- */
+  /* Gắn sự kiện & chạy */
   function bindEvents() {
     document.querySelectorAll(".tab").forEach((t) => t.addEventListener("click", () => showTab(t.dataset.tab)));
     $("#btn-connect").addEventListener("click", connect);
