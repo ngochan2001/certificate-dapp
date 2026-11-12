@@ -1,7 +1,3 @@
-/* Certificate DApp - logic giao diện
- * Thư viện: ethers v6 (frontend/lib/ethers.umd.min.js), qrcode-generator (frontend/lib/qrcode.js)
- * Cấu hình contract (địa chỉ + ABI) được đọc từ frontend/contract.json (do `npm run deploy` tạo ra).
- */
 (() => {
   "use strict";
 
@@ -32,7 +28,7 @@
     qrUrl: "",
   };
 
-  /* ---------- Tiện ích DOM / định dạng ---------- */
+  /* Tiện ích DOM / định dạng */
   function h(tag, props, ...kids) {
     const el = document.createElement(tag);
     for (const [k, v] of Object.entries(props || {})) {
