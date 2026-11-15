@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+
 """
 Sinh file PDF chứng chỉ mẫu và file metadata từ data/certificates.json.
 
