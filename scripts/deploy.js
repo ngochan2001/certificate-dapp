@@ -1,9 +1,4 @@
-/**
- * Triển khai CertificateRegistry và ghi frontend/contract.json (địa chỉ + ABI) cho giao diện.
- *
- *   npm run node      (terminal 1: mạng cục bộ)
- *   npm run deploy    (terminal 2)
- */
+
 const fs = require("fs");
 const path = require("path");
 const { ethers, artifacts, network } = require("hardhat");
