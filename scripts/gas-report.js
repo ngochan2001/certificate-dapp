@@ -1,11 +1,4 @@
-/**
- * Đo lượng gas của từng hàm ghi dữ liệu (chạy trên mạng Hardhat trong bộ nhớ).
- *
- *   npm run gas
- *
- * Kết quả ghi vào docs/gas-report.md. Lưu ý: gas phụ thuộc phiên bản compiler,
- * cấu hình optimizer và độ dài chuỗi metadataURI; phí thực tế = gas x giá gas của mạng.
- */
+
 const fs = require("fs");
 const path = require("path");
 const { ethers } = require("hardhat");
