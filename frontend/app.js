@@ -434,8 +434,9 @@
     $("#issue-hash").value = await hashFile(file);
   }
 
+  /* Lấy dữ liệu từ người dùng */
   async function issue() {
-    const msg = $("#issue-msg");
+    const msg = $("#issue-msg"); /* Vị trí thông báo */
     const hash = $("#issue-hash").value.trim();
     const holder = $("#issue-holder").value.trim();
     const uri = $("#issue-uri").value.trim();
