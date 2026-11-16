@@ -37,7 +37,6 @@ flowchart LR
 │   ├── sample-pdfs/                    6 PDF mẫu + 1 bản bị sửa
 │   └── metadata/                       metadata off-chain
 ├── frontend/                           giao diện (HTML/CSS/JS + ethers, QR)
-└── docs/BAO_CAO.md                     báo cáo đầy đủ
 ```
 
 ## Chạy nhanh
@@ -122,14 +121,6 @@ Nếu font mặc định không có trên máy, sửa `FONT_CANDIDATES` trong sc
 - Chưa kiểm toán bảo mật Smart Contract.
 - Mã QR chỉ quét được từ điện thoại khi trang web được đưa lên địa chỉ truy cập được từ Internet, không phải `localhost`.
 - Metadata off-chain không được bảo vệ toàn vẹn bởi chuỗi; căn cứ tin cậy là hash của file PDF.
-
-## Báo cáo
-
-Xem [`docs/BAO_CAO.md`](docs/BAO_CAO.md) (có sơ đồ Mermaid, bảng test, số liệu gas và ảnh demo).
-
-## Tác giả
-
-`[Họ và tên]` · `[MSSV]` · `[Lớp]`
 
 ## Giấy phép
 
